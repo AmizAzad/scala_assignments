@@ -1,5 +1,3 @@
-package exam_data_problem
-
 import scala.io.Source
 
 object Examdata {
