@@ -5,7 +5,7 @@ object Thiefdata {
   def main(args: Array[String]): Unit = {
 
     if (args.length != 1) {
-      println("Please provide an input exam data csv file to process")
+      println("Please provide an input thief data csv file to process")
       sys.exit()
     }
     println(s"File to process: ${args(0)}")
