@@ -19,3 +19,5 @@ Now you will need to calculate the CoreDigit for this new number according to th
 Limits: In the pair of numbers given above, the first number can be 100000 digits long (10 ^ 100000) and the second number can be 5 digits long.
 
 Sample file with the two numbers attached.
+
+To run this program, provide the path to CoreData.txt file (core_digit_problem/CoreData.txt) in command line argument.

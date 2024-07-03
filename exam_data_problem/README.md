@@ -8,3 +8,4 @@ Write a scala snippet that reads this file and for each line produces an output:
 "NO" if the student will not be able to finish preparation before the exam begins.
 
 Pay attention to the amount of time needed by the program to execute - try to be as optimal as possible.
+To run this program, provide the path to exam_data.csv file (exam_data_problem/exam_data.csv) in command line argument.

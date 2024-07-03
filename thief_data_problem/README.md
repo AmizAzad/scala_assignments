@@ -11,3 +11,5 @@ Now the thief passes through the next two doors in one go (because they are both
 You are given a file with many strings that represent the doors of the hallways. For each line, your program has to output the minimum number of times the remote needs to be used so that the thief successfully crosses the hallway.
 
 Try to solve this in an optimal fashion paying attention to performance.
+
+To run this program, provide the path to thief_data.csv file (thief_data_problem/thief_data.csv) in command line argument.
