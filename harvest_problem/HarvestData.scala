@@ -135,25 +135,31 @@ object HarvestData extends App {
   }
 
   def topEarningGathererOverall(harvestData: List[Harvest], priceData: List[Price]): String = {
-    val gathererEarnings = harvestData.groupBy(_.gatherer).map { case (gatherer, data) =>
-      val earnings = data.map { h =>
-        val price = priceData.find(p => p.fruit == h.fruit && p.date == h.date).map(_.price).getOrElse(0.0)
-        h.amount * price
-      }.sum
+    val gathererEarnings = harvestData.groupBy(_.gatherer).map {
+      case (gatherer, data) =>
+        val earnings = data.map {
+          h =>
+            val price = priceData.find(p => p.fruit == h.fruit && p.date == h.date).map(_.price).getOrElse(0.0)
+            h.amount * price
+        }.sum
       (gatherer, earnings)
     }
     gathererEarnings.maxBy(_._2)._1
   }
 
   def topEarningGathererPerMonth(monthlyHarvest: Map[(Int, java.time.Month, String), List[Harvest]], priceData: List[Price]): Map[(Int, java.time.Month), String] = {
-    monthlyHarvest.groupBy { case ((year, month, gatherer), _) => (year, month) }
-      .map { case ((year, month), data) =>
-        val topGatherer = data.maxBy { case (_, harvests) =>
-          harvests.map { h =>
-            val price = priceData.find(p => p.fruit == h.fruit && p.date == h.date).map(_.price).getOrElse(0.0)
-            h.amount * price
-          }.sum
-        }
+    monthlyHarvest.groupBy {
+        case ((year, month, gatherer), _) => (year, month)
+      }.map {
+        case ((year, month), data) =>
+          val topGatherer = data.maxBy {
+            case (_, harvests) =>
+              harvests.map {
+                h =>
+                  val price = priceData.find(p => p.fruit == h.fruit && p.date == h.date).map(_.price).getOrElse(0.0)
+                  h.amount * price
+              }.sum
+          }
         ((year, month), topGatherer._1._3)
       }
   }
